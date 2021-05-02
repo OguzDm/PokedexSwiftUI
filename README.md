@@ -1,4 +1,4 @@
 # PokedexSwiftUI
 A Pokedex App made with SwiftUI
 
-Images and Gif will be added soon
+Images and Gifs will be added soon
