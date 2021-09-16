@@ -7,45 +7,28 @@
 
 import Foundation
 
-class ItemViewModel : ObservableObject {
-    
+class ItemListViewModel : ObservableObject {
     
     @Published var itemResults = [ItemResults]()
-    
-    
- 
-    
-   
-    init() {
-        fetchData()
-    }
-    
+    var next = Constants.baseItemURL
     
     func fetchData () {
-            let itemURL = "https://pokeapi.co/api/v2/item?offset=0&limit=300"
-            guard let url = URL(string: itemURL) else {return}
+        
+            guard let url = URL(string: next) else {return}
             let task = URLSession.shared.dataTask(with: url) { (data, resp, err) in
                 
                 guard let data = data else {return}
                 do {
                     let decoder = try JSONDecoder().decode(ItemListModel.self, from: data)
                     DispatchQueue.main.async {
-                       
-                        self.itemResults = decoder.results
-                        print(decoder.results[0].name)
+                        self.itemResults.append(contentsOf: decoder.results)
+                        self.next = decoder.next
                     }
-                    
-                    
                 }
-                catch{
-                    
+                catch(let error){
+                    print(error.localizedDescription)
                 }
             }
             task.resume()
-        
-   
     }
-    
-  
-
 }

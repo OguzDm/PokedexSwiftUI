@@ -18,26 +18,16 @@ struct VersionsView: View {
         if versionsViewModel.spritesArray.count > 2 {
             
             VStack{
-                
-            
-            ScrollView(.vertical){
-                LazyVGrid(columns:gridItems) {
-                    
-                    ForEach(versionsViewModel.spritesArray, id: \.self) { sprite in
-                        PokeImageCell(image: sprite)
+                ScrollView(.vertical){
+                    LazyVGrid(columns:gridItems) {
+                        
+                        ForEach(versionsViewModel.spritesArray, id: \.self) { sprite in
+                            PokeImageCell(image: sprite)
+                        }
                     }
-                    
-                }
-                    
-                
-                .onAppear{
-                    versionsViewModel.update(name: name)
-                }
-                    
-                
-                
-                
-                
+                    .onAppear{
+                        versionsViewModel.update(name: name)
+                    }
                 }
             }
             .frame(width: 350, height: 250, alignment: .center)
@@ -47,8 +37,6 @@ struct VersionsView: View {
             
             PokeballLoadingView()
         }
-        
-
     }
 }
 
