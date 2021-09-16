@@ -29,12 +29,6 @@ class ListViewModel : ObservableObject {
                 let decoder = try JSONDecoder().decode(ListModel.self, from: data)
                 DispatchQueue.main.async {
                     self.pokeResults = decoder.results
-                    
-                    print(decoder.results[0].name)
-                    print(decoder.results[1].name)
-                    print(decoder.results[2].name)
-                    print(decoder.results[3].name)
-                    print(decoder.results[4].name)
                 }
             }
             catch(let error) {

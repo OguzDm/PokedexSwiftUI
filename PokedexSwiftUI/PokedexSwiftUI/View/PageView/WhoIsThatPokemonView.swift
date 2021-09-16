@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct WhoIsThatPokemonView: View {
+    
     @State private var guessName: String = ""
     @StateObject var whoIsThatPokemonViewModel = WhoIsThatPokemonViewModel()
     @State private var showingWonAlert = false
@@ -17,8 +18,6 @@ struct WhoIsThatPokemonView: View {
     @State private var message = ""
     @State private var isAnimated = false
     @State private var isRefreshed = false
-    
-    
     
     var body: some View {
         VStack{
@@ -55,13 +54,11 @@ struct WhoIsThatPokemonView: View {
                                   
                             ))
             
-            
             TextField("Who is that Pokemon?", text: $guessName)
                 .extensionTextFieldView(roundedCornes: 6, startColor: Color(#colorLiteral(red: 0.4105286896, green: 0.7708772421, blue: 0.8806886673, alpha: 1)), endColor: Color(#colorLiteral(red: 0.857052505, green: 0.078011401, blue: 0.08480388671, alpha: 1)))
                 .padding(.top,120)
                 .padding(.leading,70)
                 .padding(.trailing,70)
-            
             
             Button(action: {
                 
@@ -72,9 +69,7 @@ struct WhoIsThatPokemonView: View {
                     showingWonAlert.toggle()
                     title = "Congratz"
                     message = "You Won"
-                    
-                    
-                    
+        
                 }
                 else {
                     showingWonAlert.toggle()
@@ -102,23 +97,16 @@ struct WhoIsThatPokemonView: View {
                     guessName = ""
                 }))
                 
-                
             })
-            
             
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.4105286896, green: 0.7708772421, blue: 0.8806886673, alpha: 1)), Color(#colorLiteral(red: 0.857052505, green: 0.078011401, blue: 0.08480388671, alpha: 1))]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
         .ignoresSafeArea()
         
-        
-        
         .onTapGesture {
             hideKeyboard()
         }
-        
-        
-        
         
     }
 }
@@ -128,30 +116,3 @@ struct WhoIsThatPokemonView_Previews: PreviewProvider {
         WhoIsThatPokemonView()
     }
 }
-
-extension TextField {
-    
-    func extensionTextFieldView(roundedCornes: CGFloat, startColor: Color,  endColor: Color) -> some View {
-        self
-            .frame(width: 285, height: 10, alignment: .center)
-            .padding()
-            .background(LinearGradient(gradient: Gradient(colors: [startColor, endColor]), startPoint: .topLeading, endPoint: .bottomTrailing))
-            .cornerRadius(roundedCornes)
-            .shadow(color: .black, radius: 2)
-            .shadow(color: .black, radius: 2, x: 0.0, y: 0.0)
-    }
-}
-
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif

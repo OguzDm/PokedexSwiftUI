@@ -27,9 +27,7 @@ struct ItemCellView: View {
         .padding()
         
         .onAppear(){
-            
             itemDetailViewModel.uploadSprite(itemName: name)
-            
         }
     }
 }

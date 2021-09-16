@@ -34,8 +34,8 @@ class PokedexViewModel : ObservableObject {
                     
                 }
             }
-            catch{
-                
+            catch(let error){
+                print(error.localizedDescription)
             }
         }
         task.resume()

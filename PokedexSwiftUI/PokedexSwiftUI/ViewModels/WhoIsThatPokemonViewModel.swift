@@ -27,14 +27,14 @@ class WhoIsThatPokemonViewModel : ObservableObject{
             guard let data = data else {return}
             do {
                 let decoder = try JSONDecoder().decode(PokemonModel.self, from: data)
+                
                 DispatchQueue.main.async {
-                    
                     self.name = decoder.name
                     self.sprite = decoder.sprites.other.officialArtwork.front_default
                 }
             }
-            catch{
-                
+            catch(let error){
+                print(error.localizedDescription)
             }
         }
         task.resume()

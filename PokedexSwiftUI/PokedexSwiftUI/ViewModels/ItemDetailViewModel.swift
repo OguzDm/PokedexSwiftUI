@@ -21,7 +21,6 @@ class ItemDetailViewModel : ObservableObject {
             do {
                 let decoder = try JSONDecoder().decode(ItemModel.self, from: data)
                 DispatchQueue.main.async {
-                    
                     self.itemSprite = decoder.sprites.spritesDefault
                 }
             }

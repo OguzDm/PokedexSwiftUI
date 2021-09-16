@@ -24,9 +24,7 @@ class ItemViewModel : ObservableObject {
                 do {
                     let decoder = try JSONDecoder().decode(ItemListModel.self, from: data)
                     DispatchQueue.main.async {
-                       
                         self.itemResults = decoder.results
-                        print(decoder.results[0].name)
                     }
                 }
                 catch(let error){

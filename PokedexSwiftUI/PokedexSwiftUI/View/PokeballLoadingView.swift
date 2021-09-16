@@ -25,7 +25,6 @@ struct PokeballLoadingView: View {
                 .rotationEffect(Angle.degrees(isRotate ? 360 : 0))
                 .animation(animation)
                 
-                
                 .onAppear{
                     isRotate = true
                 }
