@@ -14,8 +14,6 @@ class ListViewModel : ObservableObject {
     
     @Published var pokeResults = [PokeResults]()
     
-    
-    
     init() {
         fetchPokemonList()
     }
@@ -38,17 +36,11 @@ class ListViewModel : ObservableObject {
                     print(decoder.results[3].name)
                     print(decoder.results[4].name)
                 }
-          
-
-
             }
-            
-            catch {
-                
+            catch(let error) {
+                print(error.localizedDescription)
             }
         }
         task.resume()
     }
-    
-    
 }

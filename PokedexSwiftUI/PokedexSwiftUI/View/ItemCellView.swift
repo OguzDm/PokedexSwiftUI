@@ -15,11 +15,10 @@ struct ItemCellView: View {
     var body: some View {
         ZStack{
             
-                
             KFImage(URL(string: itemDetailViewModel.itemSprite))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 50, alignment:.center)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 50, alignment:.center)
             
         }.frame(width: UIScreen.main.bounds.width - 325, height: 100, alignment: .center)
         
@@ -30,7 +29,6 @@ struct ItemCellView: View {
         .onAppear(){
             
             itemDetailViewModel.uploadSprite(itemName: name)
-            
             
         }
     }

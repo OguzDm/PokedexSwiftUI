@@ -18,11 +18,8 @@ struct PokemonCell: View {
         
         if pokedexViewModel.spriteArray != "" {
             
-      
-        
             ZStack{
                 
-          
                 Button(action: {
                     showingSheet.toggle()
                 }){
@@ -36,38 +33,27 @@ struct PokemonCell: View {
                         Text(pokedexViewModel.name.capitalized(with: .current))
                             .foregroundColor(.white)
                         
-                    
-
                     }
                 }
                 .sheet(isPresented: $showingSheet) {
                     PokemonPageView(pokemonName: pokedexViewModel.name)
                 }
-
-           
-                
                 
             }.frame(width: 180, height: 200, alignment: .center)
             .background(LinearGradient(gradient: Gradient(colors: [returnColorFromType(type: pokedexViewModel.typeArray ), returnColorFromType(type: pokedexViewModel.typeArray ).opacity(0.2)]), startPoint: .leading, endPoint: .bottomTrailing))
             .shadow(color: returnColorFromType(type: pokedexViewModel.typeArray ), radius: 8.0, x: 0.0, y: 0.0)
             .cornerRadius(8.0)
-        
-        
-        
-        
+            
         }
         
         else {
             
-        ProgressView()
-            .progressViewStyle(CircularProgressViewStyle())
-            .onAppear{
-                pokedexViewModel.update(name: name)
-            }
-        
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+                .onAppear{
+                    pokedexViewModel.update(name: name)
+                }
         }
-       
-      
     }
     
     

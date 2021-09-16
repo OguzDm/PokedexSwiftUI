@@ -18,19 +18,14 @@ struct WhoIsThatPokemonView: View {
     @State private var isAnimated = false
     @State private var isRefreshed = false
     
-   
+    
     
     var body: some View {
         VStack{
             
-            
-            
-            
             Button(action: {
-      
+                
                 isRefreshed.toggle()
-                
-                
                 whoIsThatPokemonViewModel.fetchData()
             }){
                 Image(systemName: "arrow.2.circlepath")
@@ -42,17 +37,12 @@ struct WhoIsThatPokemonView: View {
                     .padding(.leading,330)
             }
             
-            
             Image("whoisthat")
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .shadow(color: .black, radius: 4, x: 0.0, y: 0.0)
                 .shadow(color: .black, radius: 4, x: 0.0, y: 0.0)
-        
-                
-                
-                
                 .overlay(Image("black")
                             .resizable()
                             .frame(width: 250, height: 250, alignment: .center)
@@ -66,11 +56,11 @@ struct WhoIsThatPokemonView: View {
                             ))
             
             
-                TextField("Who is that Pokemon?", text: $guessName)
-                    .extensionTextFieldView(roundedCornes: 6, startColor: Color(#colorLiteral(red: 0.4105286896, green: 0.7708772421, blue: 0.8806886673, alpha: 1)), endColor: Color(#colorLiteral(red: 0.857052505, green: 0.078011401, blue: 0.08480388671, alpha: 1)))
-                    .padding(.top,120)
-                    .padding(.leading,70)
-                    .padding(.trailing,70)
+            TextField("Who is that Pokemon?", text: $guessName)
+                .extensionTextFieldView(roundedCornes: 6, startColor: Color(#colorLiteral(red: 0.4105286896, green: 0.7708772421, blue: 0.8806886673, alpha: 1)), endColor: Color(#colorLiteral(red: 0.857052505, green: 0.078011401, blue: 0.08480388671, alpha: 1)))
+                .padding(.top,120)
+                .padding(.leading,70)
+                .padding(.trailing,70)
             
             
             Button(action: {
@@ -115,20 +105,20 @@ struct WhoIsThatPokemonView: View {
                 
             })
             
-                    
+            
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.4105286896, green: 0.7708772421, blue: 0.8806886673, alpha: 1)), Color(#colorLiteral(red: 0.857052505, green: 0.078011401, blue: 0.08480388671, alpha: 1))]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
         .ignoresSafeArea()
         
         
-               
+        
         .onTapGesture {
             hideKeyboard()
         }
-            
         
-           
+        
+        
         
     }
 }

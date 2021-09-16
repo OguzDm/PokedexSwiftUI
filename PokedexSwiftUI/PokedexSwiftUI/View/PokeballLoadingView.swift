@@ -16,25 +16,23 @@ struct PokeballLoadingView: View {
         Animation.linear
             .repeatForever(autoreverses: false)
     }
-
+    
     var body: some View {
         ZStack {
-            
-
-                Image("pokeball")
-                    .resizable()
-                    .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .rotationEffect(Angle.degrees(isRotate ? 360 : 0))
-                    .animation(animation)
+            Image("pokeball")
+                .resizable()
+                .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .rotationEffect(Angle.degrees(isRotate ? 360 : 0))
+                .animation(animation)
                 
-            
-                    .onAppear{
-                        isRotate = true
-                    }
-            
-                    .onDisappear{
-                        isRotate = false
-                    }
+                
+                .onAppear{
+                    isRotate = true
+                }
+                
+                .onDisappear{
+                    isRotate = false
+                }
         }
     }
 }

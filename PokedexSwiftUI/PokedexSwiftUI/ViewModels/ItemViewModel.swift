@@ -9,17 +9,11 @@ import Foundation
 
 class ItemViewModel : ObservableObject {
     
-    
     @Published var itemResults = [ItemResults]()
     
-    
- 
-    
-   
     init() {
         fetchData()
     }
-    
     
     func fetchData () {
             let itemURL = "https://pokeapi.co/api/v2/item?offset=0&limit=300"
@@ -34,18 +28,11 @@ class ItemViewModel : ObservableObject {
                         self.itemResults = decoder.results
                         print(decoder.results[0].name)
                     }
-                    
-                    
                 }
-                catch{
-                    
+                catch(let error){
+                    print(error.localizedDescription)
                 }
             }
             task.resume()
-        
-   
     }
-    
-  
-
 }

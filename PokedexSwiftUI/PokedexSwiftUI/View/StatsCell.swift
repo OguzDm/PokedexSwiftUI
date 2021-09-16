@@ -13,11 +13,9 @@ struct StatsCell: View {
     var body: some View {
         
         if stats != nil {
-            
-        
-        HStack{
-            VStack(spacing:30){
-                
+            HStack{
+                VStack(spacing:30){
+                    
                     Text("Hp:")
                         .frame(width: 120, height: 30, alignment: .leading)
                     Text("Defense:")
@@ -26,49 +24,45 @@ struct StatsCell: View {
                         .frame(width: 120, height: 30, alignment: .leading)
                     Text("Special Def:")
                         .frame(width: 120, height: 30, alignment: .leading)
-                Text("Speed:")
-                    .frame(width: 120, height: 30, alignment: .leading)
-                       
-            }.frame(width: 120, height: 250, alignment:.leading)
-            VStack(spacing:57){
-                
-                
-                ProgressView(value: Float(stats?[0].base_stat ?? 50), total: 100)
+                    Text("Speed:")
+                        .frame(width: 120, height: 30, alignment: .leading)
+                    
+                }.frame(width: 120, height: 250, alignment:.leading)
+                VStack(spacing:57){
+                    
+                    
+                    ProgressView(value: Float(stats?[0].base_stat ?? 50), total: 100)
                         .accentColor(.red)
                         .scaleEffect(x:1,y:3,anchor: .center)
-                       
+                    
                     
                     ProgressView(value: Float(stats?[1].base_stat ?? 50), total: 90)
                         .accentColor(.green)
                         .scaleEffect(x:1,y:3,anchor: .center)
-                      
+                    
                     
                     ProgressView(value: Float(stats?[2].base_stat ?? 50), total: 90)
                         .accentColor(.yellow)
                         .scaleEffect(x:1,y:3,anchor: .center)
-                        
+                    
                     
                     ProgressView(value: Float(stats?[3].base_stat ?? 50), total: 90)
                         .accentColor(.blue)
                         .scaleEffect(x:1,y:3,anchor: .center)
-                        
-                        
+                    
+                    
                     ProgressView(value: Float(stats?[4].base_stat ?? 50), total: 90)
                         .accentColor(.purple)
                         .scaleEffect(x:1,y:3,anchor: .center)
-                     
-                
-         
                     
+                }
+                .frame(width: 200, height: 250, alignment:.center)
+                
             }
-            .frame(width: 200, height: 250, alignment:.center)
-            
-        }
-            
         }
         
         else {
-           PokeballLoadingView()
+            PokeballLoadingView()
         }
     }
 }

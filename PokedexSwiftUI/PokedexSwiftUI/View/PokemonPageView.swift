@@ -30,8 +30,8 @@ struct PokemonPageView: View {
                         .frame(width: 200, height: 50, alignment: .bottom)
                     
                     KFImage(URL(string: pokedexViewModel.spriteArray ))
-                    .resizable()
-                    .frame(width: 200, height: 200, alignment: .top)
+                        .resizable()
+                        .frame(width: 200, height: 200, alignment: .top)
                 }
                 .frame(width: UIScreen.main.bounds.width - 50, height: 275, alignment: .bottom)
                 
@@ -40,17 +40,17 @@ struct PokemonPageView: View {
                 .padding(.top,50)
                 .ignoresSafeArea()
                 
-         
+                
                 
                 VStack {
                     
                     HStack{
                         
                         if pokedexViewModel.typeArray.count == 1 {
-                   
+                            
                             HStack{
                                 Text(pokedexViewModel.typeArray[0].type.name.capitalized(with: .current))
-                                  
+                                
                                 Image(systemName: returnImageFromType(type: pokedexViewModel.typeArray[0].type.name))
                                     .font(.system(size: 80))
                                     .padding(.trailing, -60)
@@ -61,14 +61,14 @@ struct PokemonPageView: View {
                             .font(.system(size:22))
                             .background(returnColorFromType(type: pokedexViewModel.typeArray[0].type.name ).opacity(0.40))
                             .cornerRadius(16)
-                           
+                            
                         }
                         
                         else if pokedexViewModel.typeArray.count == 2 {
-                        
+                            
                             HStack{
                                 Text(pokedexViewModel.typeArray[0].type.name.capitalized(with: .current))
-                                  
+                                
                                 Image(systemName: returnImageFromType(type: pokedexViewModel.typeArray[0].type.name))
                                     .font(.system(size: 80))
                                     .padding(.trailing, -60)
@@ -83,7 +83,7 @@ struct PokemonPageView: View {
                             
                             HStack{
                                 Text(pokedexViewModel.typeArray[1].type.name.capitalized(with: .current))
-                                  
+                                
                                 Image(systemName: returnImageFromType(type: pokedexViewModel.typeArray[1].type.name))
                                     .font(.system(size: 80))
                                     .padding(.trailing, -60)
@@ -95,40 +95,11 @@ struct PokemonPageView: View {
                             .background(returnColorFromType(type: pokedexViewModel.typeArray[1].type.name ).opacity(0.40))
                             .cornerRadius(16)
                         }
-                      
-                        
-                           
-                        
                     }
                     .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .top)
                     .padding(.bottom,30)
                     
                     StatsCell(stats: pokedexViewModel.statArray)
-                    
-                    
-//                    Picker(selection: $selectedPage , label: Text("Picker"), content: {
-//                        Text("Stats").tag(1)
-//                        Text("Versions").tag(2)
-//                    }).pickerStyle(SegmentedPickerStyle())
-//                    .padding(.bottom,10)
-//                    .padding(.trailing,30)
-//                    .padding(.leading,30)
-//                    .padding(.top,10)
-//
-//
-//                    if selectedPage == 1 {
-//                       StatsCell(stats: pokedexViewModel.statArray)
-//
-//
-//                    }
-//
-//                    else if selectedPage == 2 {
-//                        VersionsView(image: nil, name: pokedexViewModel.name)
-//                    }
-                    
-                    
-                    
-
                     
                 }
                 
@@ -143,20 +114,16 @@ struct PokemonPageView: View {
             }
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .top)
             .background(returnColorFromType(type:pokedexViewModel.typeArray[0].type.name).opacity(0.20))
-        
             
-    }
+            
+        }
         else {
             PokeballLoadingView()
                 
-            .onAppear{
-                pokedexViewModel.update(name: pokemonName)
-            }
-              
+                .onAppear{
+                    pokedexViewModel.update(name: pokemonName)
+                }
         }
-       
-        
-        
     }
     
     func returnColorFromType(type: String) -> Color {
@@ -255,9 +222,6 @@ struct PokemonPageView: View {
             return "diamond.fill"
         }
     }
-    
-    
-
 }
 
 struct PokemonPageView_Previews: PreviewProvider {

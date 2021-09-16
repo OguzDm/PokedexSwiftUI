@@ -9,45 +9,23 @@ import SwiftUI
 
 struct PokemonListView: View {
     private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
-       
-      @StateObject var listViewModel = ListViewModel()
-       var body: some View {
-           
-           if listViewModel.pokeResults.count > 20 {
-                   
-                       
-                       ScrollView(.vertical){
-                           LazyVGrid(columns: gridItems) {
-                               ForEach(listViewModel.pokeResults,id:\.self) { poke in
-
-                                   PokemonCell(name: poke.name)
-                                
-
-
-                               }
-
-
-                           }
-                       }
-                       
-                      
-               
-                   
-             
-                
-                 
-               }
+    
+    @StateObject var listViewModel = ListViewModel()
+    var body: some View {
         
-           else {
+        if listViewModel.pokeResults.count > 20 {
+            ScrollView(.vertical){
+                LazyVGrid(columns: gridItems) {
+                    ForEach(listViewModel.pokeResults,id:\.self) { poke in
+                        PokemonCell(name: poke.name)
+                    }
+                }
+            }
+        }
+        else {
             PokeballLoadingView()
-           }
-               
-               
-          
-        
-        
-           
-       }
+        }
+    }
 }
 
 struct PokemonListView_Previews: PreviewProvider {
