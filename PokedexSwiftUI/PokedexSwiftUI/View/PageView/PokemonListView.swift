@@ -13,17 +13,25 @@ struct PokemonListView: View {
     @StateObject var listViewModel = ListViewModel()
     var body: some View {
         
-        if listViewModel.pokeResults.count > 20 {
+        if !listViewModel.pokeResults.isEmpty {
             ScrollView(.vertical){
                 LazyVGrid(columns: gridItems) {
-                    ForEach(listViewModel.pokeResults,id:\.self) { poke in
-                        PokemonCell(name: poke.name)
+                    ForEach(listViewModel.pokeResults.indices,id:\.self) { index in
+                        PokemonCell(name: listViewModel.pokeResults[index].name)
+                            .onAppear {
+                                if index == listViewModel.pokeResults.count - 4 {
+                                    listViewModel.fetchPokemonList()
+                            }
+                        }
                     }
                 }
             }
         }
         else {
             PokeballLoadingView()
+                .onAppear {
+                    listViewModel.fetchPokemonList()
+            }
         }
     }
 }

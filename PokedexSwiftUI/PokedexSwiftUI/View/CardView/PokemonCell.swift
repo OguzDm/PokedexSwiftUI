@@ -24,15 +24,15 @@ struct PokemonCell: View {
                     showingSheet.toggle()
                 }){
                     VStack{
-                        KFImage(URL(string: pokedexViewModel.spriteArray ))
+                        KFImage(URL(string: pokedexViewModel.spriteArray))
+                            .placeholder({
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle())
+                            })
                             .resizable()
                             .frame(width: 100, height: 100, alignment: .center).padding()
-                        
-                        
-                        
                         Text(pokedexViewModel.name.capitalized(with: .current))
                             .foregroundColor(.white)
-                        
                     }
                 }
                 .sheet(isPresented: $showingSheet) {
@@ -47,7 +47,6 @@ struct PokemonCell: View {
         }
         
         else {
-            
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
                 .onAppear{

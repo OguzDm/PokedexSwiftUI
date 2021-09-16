@@ -10,6 +10,7 @@
 		12EED22826F3437A00E7BD7B /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EED22726F3437A00E7BD7B /* TextField+Extension.swift */; };
 		12EED22A26F3441E00E7BD7B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EED22926F3441E00E7BD7B /* View+Extension.swift */; };
 		12EED22C26F3444C00E7BD7B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EED22B26F3444C00E7BD7B /* UIApplication+Extension.swift */; };
+		12EED22E26F34DF300E7BD7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EED22D26F34DF300E7BD7B /* Constants.swift */; };
 		B900BC2126370EB3008B5B59 /* PokemonDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900BC2026370EB3008B5B59 /* PokemonDetailModel.swift */; };
 		B900BC2426370EFA008B5B59 /* PokemonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900BC2326370EFA008B5B59 /* PokemonDetailViewModel.swift */; };
 		B900BC272637326A008B5B59 /* ItemPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900BC262637326A008B5B59 /* ItemPageView.swift */; };
@@ -45,6 +46,7 @@
 		12EED22726F3437A00E7BD7B /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		12EED22926F3441E00E7BD7B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		12EED22B26F3444C00E7BD7B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		12EED22D26F34DF300E7BD7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B900BC2026370EB3008B5B59 /* PokemonDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailModel.swift; sourceTree = "<group>"; };
 		B900BC2326370EFA008B5B59 /* PokemonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModel.swift; sourceTree = "<group>"; };
 		B900BC262637326A008B5B59 /* ItemPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPageView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				12EED22726F3437A00E7BD7B /* TextField+Extension.swift */,
 				12EED22926F3441E00E7BD7B /* View+Extension.swift */,
 				12EED22B26F3444C00E7BD7B /* UIApplication+Extension.swift */,
+				12EED22D26F34DF300E7BD7B /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				B900BC2126370EB3008B5B59 /* PokemonDetailModel.swift in Sources */,
 				B9FD29C4263608D800FE5895 /* ItemModel.swift in Sources */,
 				B92603FD26385A500064A2E6 /* WhoIsThatPokemonView.swift in Sources */,
+				12EED22E26F34DF300E7BD7B /* Constants.swift in Sources */,
 				B92D348B26330000003AD566 /* PokemonPageView.swift in Sources */,
 				B926040026385B100064A2E6 /* WhoIsThatPokemonViewModel.swift in Sources */,
 				B924681226342065007BFFB0 /* ListModel.swift in Sources */,
