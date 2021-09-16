@@ -9,28 +9,31 @@ import SwiftUI
 
 struct ItemListView: View {
     
-    @StateObject var itemViewModel = ItemViewModel()
+    @StateObject var itemViewModel = ItemListViewModel()
+    @State private var showFourGrid = false
     private var gridItems = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     private var gridFourItems = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
-    @State private var showFourGrid = false
     
     var body: some View {
         
-        if itemViewModel.itemResults.count > 20 {
+        if !itemViewModel.itemResults.isEmpty {
             
-            if showFourGrid  {
+            if showFourGrid {
                 
                 ScrollView(.vertical) {
                     LazyVGrid(columns: gridFourItems) {
-                        ForEach(itemViewModel.itemResults,id:\.self) { item in
-                            
-                            ItemCellView(name: item.name)
+                        ForEach(itemViewModel.itemResults.indices,id:\.self) { index in
+                            ItemCellView(name: itemViewModel.itemResults[index].name)
+                                .onAppear {
+                                    if index == itemViewModel.itemResults.count - 8 {
+                                        itemViewModel.fetchData()
+                                    }
+                                }
                         }
                     }
                 }
-                .overlay(                  Group{
+                .overlay(Group{
                     Button(action:{
-                        
                         showFourGrid.toggle()
                     }) {
                         VStack{
@@ -60,17 +63,20 @@ struct ItemListView: View {
             else {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: gridItems) {
-                        ForEach(itemViewModel.itemResults,id:\.self) { item in
-                            
-                            ItemCellView(name: item.name)
+                        ForEach(itemViewModel.itemResults.indices,id:\.self) { index in
+                            ItemCellView(name: itemViewModel.itemResults[index].name)
+                                .onAppear {
+                                    if index == itemViewModel.itemResults.count - 8 {
+                                        itemViewModel.fetchData()
+                                    }
+                                }
                         }
                     }
                 }
-                .overlay(                  Group{
+                .overlay(Group{
                     Button(action:{
-                        
                         showFourGrid.toggle()
-                    }) {
+                    }){
                         VStack{
                             
                             if showFourGrid {
@@ -93,11 +99,13 @@ struct ItemListView: View {
                     }
                 }.frame(maxHeight: .infinity,alignment: .bottom))
                 .navigationBarHidden(true)
-                
             }
         }
         else {
             PokeballLoadingView()
+                .onAppear{
+                    itemViewModel.fetchData()
+                }
         }
     }
 }

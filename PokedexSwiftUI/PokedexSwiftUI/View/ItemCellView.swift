@@ -16,6 +16,10 @@ struct ItemCellView: View {
         ZStack{
             
             KFImage(URL(string: itemDetailViewModel.itemSprite))
+                .placeholder({
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                })
                 .resizable()
                 .scaledToFill()
                 .frame(width: 50, height: 50, alignment:.center)

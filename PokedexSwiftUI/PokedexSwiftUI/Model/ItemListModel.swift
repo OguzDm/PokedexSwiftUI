@@ -9,8 +9,7 @@ import Foundation
 
 
 struct ItemListModel : Codable {
-    
-    
+    let next: String
     let results: [ItemResults]
     
 }
